@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Weather App</title>
+        <link href="Weather.css" rel="stylesheet"><br>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+    </head>
+<br>
+<main>
+<body id="body">
+    <h3>Low-fi, no fuss</h3>
+    <div id="final_wrapper">
+        <div id="headerDiv">
+    <h2>Weather App</h2>
+    <div id="date_location" class="wrapper_div"><p id="date"></p></div>
+    <div id="div_time" class="wrapper_div"><p id="time"></p></div>
+    <div id="div_location" class="wrapper_div"><p id="location"></p></div>
+    </div>
+    <div id="weather_wrapper">
+        <form id="input_form">
+            <label id="input_label">Enter a town/city/zip code/postcode:</label><br>
+        <input 
+        id="user_input"
+        type="text"
+        required
+        placeholder="Town/City/Zip Code/Post Code:"
+        /><br><br>
+        <button type="submit" id="location_button" onClick="getUserValue()">Go!</button>
+        <button id="refresh" onClick="refresh()">Refresh</button>
+        </form>
+    <div id="outer_wrapper">
+<div id="date_location_wrapper">
+
+</div>
+    <div id="main_wrapper">
+    
+    <div id="div_temp_c" class="wrapper_div">Temp &#176;C:<p id="temp_c"></p></div>
+    <div id="div_temp_f" class="wrapper_div">Temp &#176;F:<p id="temp_f"></p></div>
+    <div id="condition" class="wrapper_div">Weather Conditions:<p id="cond"></p></div>
+    
+    <div id="forecast">
+    <h3 id="forecast_h3">Tomorrow's Forecast</h3>
+    <div id="max_temp_c" class="wrapper_div">Max Temp &#176;C/F:<p id="tom_temp_c"></p></div>
+    <div id="min_temp_c" class="wrapper_div">Min Temp &#176;C/F:<p id="tom_min_temp_c"></p></div>
+    <div id="max_temp_f" class="wrapper_div">Chance of Rain:<p id="rain"></p></div>
+    <div id="min_temp_f"><p id="tom_min_temp_f"></p></div>
+    <div id="chance_rain"><p id="rain"></p></div>
+    </div>
+    </div>
+</div>
+    </div>
+    </div>
+</body>
+<script src="Weather.js"></script>
+</main>
