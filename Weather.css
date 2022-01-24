@@ -3,6 +3,7 @@
     --wrapper-div-background-color: rgb(19, 9, 44);
     --main-text-color:rgb(241, 233, 233);
     --border-color-01:rgb(23, 8, 240);
+    --border-color-02:rgb(4, 4, 66);
 }
 #body{
     background-color: var(--main-background-color);
@@ -100,7 +101,7 @@ h2{
     font-size: 25px;
     font-family: monospace;
     background-color:  rgb(63, 21, 168);
-    border: 7px solid var(--border-color-01);
+    border: 7px solid var(--border-color-02);
 }
 #condition{
     height: auto;
@@ -136,21 +137,31 @@ h2{
 }
 #forecast{
     display: flex;
-    flex-direction:column ;
-    flex-wrap:wrap;
+    flex-direction:column;
+    justify-content: flex-end;
+   /* align-content: space-around;*/
+    align-items: flex-end;
     height:400px;
     border-left:1px solid rgb(75, 5, 5);
+}
+#tomorrow{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height:400px;
 }
 #forecast_h3{
     color:rgb(54, 2, 2);
     background-color: rgb(205, 205, 255);
     border-bottom:3px solid rgb(35, 41, 0);
-   margin-left: 3em;
+   margin-left: 5em;
     padding:5px;
     border-radius: 5px;
     font-family: monospace;
     font-size: 20px;
 }
+#sunrise,
+#sunset,
 #max_temp_c,
 #max_temp_f,
 #min_temp_c{
@@ -168,9 +179,12 @@ h2{
 #max_temp_c,
 #max_temp_f,
 #min_temp_c{
-    margin-left:4em;
+    margin-left:0.5em;
 }
-
+#sunrise,
+#sunset{
+    margin-right: 10em;
+}
 
 #outer_wrapper{
     display: flex;

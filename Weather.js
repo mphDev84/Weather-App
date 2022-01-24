@@ -31,6 +31,9 @@ let myCity=x;
 	let tomorrow_min_temp_c;
 	let tomorrow_min_temp_f;
 	let tomorrow_condition;
+	let chance_snow;
+	let sunrise;
+	let sunset;
 	
 
 xhr.withCredentials = true;
@@ -47,18 +50,21 @@ console.log(myStr);
 	myTemp_c = myParse.current.temp_c;
 	myTemp_f = myParse.current.temp_f;
 	condition = myParse.current.condition.text;
-	chance_rain = myParse.forecast["forecastday"][0].day.daily_chance_of_rain;
-	tomorrow_max_temp_c = myParse.forecast["forecastday"][0].day.maxtemp_c;
-	tomorrow_max_temp_f = myParse.forecast["forecastday"][0].day.maxtemp_f;
-	tomorrow_min_temp_c = myParse.forecast["forecastday"][0].day.mintemp_c;
-	tomorrow_min_temp_f = myParse.forecast["forecastday"][0].day.mintemp_f;
-	tomorrow_condition = myParse.forecast["forecastday"][0].day.condition.text;
+	chance_rain = myParse.forecast["forecastday"][1].day.daily_chance_of_rain;
+	tomorrow_max_temp_c = myParse.forecast["forecastday"][1].day.maxtemp_c;
+	tomorrow_max_temp_f = myParse.forecast["forecastday"][1].day.maxtemp_f;
+	tomorrow_min_temp_c = myParse.forecast["forecastday"][1].day.mintemp_c;
+	tomorrow_min_temp_f = myParse.forecast["forecastday"][1].day.mintemp_f;
+	tomorrow_condition = myParse.forecast["forecastday"][1].day.condition.text;
+	sunrise=myParse.forecast["forecastday"][1].astro.sunrise;
+	sunset=myParse.forecast["forecastday"][1].astro.sunset;
+	chance_snow=myParse.forecast["forecastday"][1].day.daily_chance_of_snow;
+	console.log(sunrise +" "+sunset);
 
-	console.log(myParse.forecast["forecastday"][0]);
+	console.log(myParse.forecast["forecastday"][1]);
 	console.log(tomorrow_condition);
 
-
-myFunc();//call function to display object data
+displayWeatherData();//call function to display object data
 
 	}
 });
@@ -70,7 +76,7 @@ xhr.setRequestHeader("x-rapidapi-key", "50ec1d7ee6msh459fcfbf83f7285p1812ccjsnc4
 
 xhr.send(data);
 
-function myFunc(){
+function displayWeatherData(){
 	//display object data
 	document.querySelector("#outer_wrapper").style.visibility="visible";
 	document.querySelector("#date_location").style.visibility="visible";
@@ -88,6 +94,8 @@ function myFunc(){
 	document.querySelector("#max_temp_f").classList.add("scale-in-center");
 	document.querySelector("#min_temp_c").classList.add("scale-in-center");
 	document.querySelector("#min_temp_f").classList.add("scale-in-center");
+	document.querySelector("#sunrise").classList.add("scale-in-center");
+	document.querySelector("#sunset").classList.add("scale-in-center");
 
 	document.querySelector("#location").innerHTML=`${myLocation}, ${myRegion}, ${myCountry}`;
 	document.querySelector("#temp_c").innerHTML=`${myTemp_c}`;
@@ -95,7 +103,9 @@ function myFunc(){
 	document.querySelector("#cond").innerHTML=`${condition}`;
 	document.querySelector("#tom_temp_c").innerHTML=`${tomorrow_max_temp_c}/${tomorrow_max_temp_f}`;
 	document.querySelector("#tom_min_temp_c").innerHTML=`${tomorrow_min_temp_c}/${tomorrow_min_temp_f}`;
-	document.querySelector("#rain").innerHTML=`${chance_rain}%`;
+	document.querySelector("#rain").innerHTML=`${chance_rain}%/${chance_snow}%`;
+	document.querySelector("#tom_sunrise").innerHTML=`${sunrise}`;
+	document.querySelector("#tom_sunset").innerHTML=`${sunset}`;
 
 	const myDate = new Date().toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"}) ;
 	console.log(myDate);
@@ -113,4 +123,3 @@ function myFunc(){
 function refresh(){
 	window.location.reload();
 };
-
