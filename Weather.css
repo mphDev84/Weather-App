@@ -31,6 +31,7 @@ h2{
   font-size: 70px;
     text-align:center;
     height:fit-content;
+    word-wrap: break-word;
    
 }
 #input_form{
