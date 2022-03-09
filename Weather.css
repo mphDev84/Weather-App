@@ -237,3 +237,13 @@ h2{
     }
   }
   
+  @media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+
+        #weather_wrapper,
+        #outer_wrapper{
+            width:400px;
+        }
+}
