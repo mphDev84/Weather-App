@@ -246,4 +246,7 @@ h2{
         #outer_wrapper{
             width:400px;
         }
+        #final_wrapper{
+            width:1024px;
+        }
 }
